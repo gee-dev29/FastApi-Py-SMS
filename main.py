@@ -7,14 +7,14 @@ def start_application():
     from sqlalchemy import text
     
     # Drop tables with CASCADE to handle foreign key dependencies (for development)
-    with database.engine.connect() as conn:
-        conn.execute(text("DROP TABLE IF EXISTS branches CASCADE"))
-        conn.execute(text("DROP TABLE IF EXISTS churches CASCADE"))
-        conn.execute(text("DROP TABLE IF EXISTS approvals CASCADE"))
-        conn.execute(text("DROP TABLE IF EXISTS activity_logs CASCADE"))
-        conn.execute(text("DROP TABLE IF EXISTS notifications CASCADE"))
-        conn.execute(text("DROP TABLE IF EXISTS users CASCADE"))
-        conn.commit()
+    # with database.engine.connect() as conn:
+    #     conn.execute(text("DROP TABLE IF EXISTS branches CASCADE"))
+    #     conn.execute(text("DROP TABLE IF EXISTS churches CASCADE"))
+    #     conn.execute(text("DROP TABLE IF EXISTS approvals CASCADE"))
+    #     conn.execute(text("DROP TABLE IF EXISTS activity_logs CASCADE"))
+    #     conn.execute(text("DROP TABLE IF EXISTS notifications CASCADE"))
+    #     conn.execute(text("DROP TABLE IF EXISTS users CASCADE"))
+    #     conn.commit()
     
     # Create all tables with correct schema
     database.Base.metadata.create_all(bind=database.engine)
