@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from StudentManagementSystem.Route.UserRoute import userRouter
+from StudentManagementSystem.Route.ServiceRoute import serviceRouter
+from StudentManagementSystem.Model import Country
 import uvicorn
 
 def start_application():
@@ -21,6 +23,7 @@ def start_application():
 
     app = FastAPI(title="Production OOP CRUD Service", version="1.0.0")
     app.include_router(userRouter)
+    app.include_router(serviceRouter)
     return app
 
 app = start_application()
