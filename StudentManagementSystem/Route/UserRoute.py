@@ -15,7 +15,10 @@ userRouter = APIRouter(prefix="/users", tags=["Users"])
 
 @userRouter.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
-    return UserController.create_user(db=db, user_in=user)
+    return {
+        "message": "User created successfully",
+        "user": UserController.create_user(db=db, user_in=user),
+    }
 
 @userRouter.get("/", response_model=UserListResponse)
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
